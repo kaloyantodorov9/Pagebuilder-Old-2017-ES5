@@ -1,0 +1,118 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+  height:100%;
+}
+
+body{
+	position: relative;
+	width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+	height:100%;
+	background: #fff;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-begs-practice/
+ */
+*, *::before, *::after {
+  box-sizing: inherit;
+} 
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gs-pb-main-container{
+	@include relative(top 0 left 0);
+	@include size(100%, 100%);
+	background: #f1f1f1;
+}
+
+.gs-pb-iframe-holder{
+	@include relative(top 0 left 0);
+	@include size(100%, 100%);
+	font-size: 0;
+	text-align: center;
+
+	&:before{
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		@include size(0, 100%);
+	}
+}
+
+#builder-preview-iframe{
+	@include relative(top 0 left 0);
+	@include size(100%, 100%);
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 auto;
+	border: none;
+	backface-visibility: hidden;
+
+	&.tablet{
+		max-width: 1024px;
+		height: 768px;
+		max-height: 100%;
+	}
+
+	&.mobile{
+		max-width: 380px;
+		height: 640px;
+		max-height: 100%;
+	}
+}
+
+.pb-background{
+	@include absolute(top 0 left 0);
+	@include size(100%, 100%);
+	background-position:center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.pb-iframe-preloader{
+	@include fixed(top 0 left 0);
+	@include size(100%, 100%);
+	z-index: 20;
+	background: #fff;
+
+	.pb-spinner-holder{
+		@include relative(top 50%);
+		@include size(70px, 70px);
+		margin: -35px auto 0;
+		z-index: 2;
+		text-align: center;
+		opacity: .8;
+	}
+
+	.pb-iframe-spinner{
+	  animation: rotator 1.5s linear infinite;
+
+	  .gs-path{
+		  stroke-dasharray: 185;
+		  stroke-dashoffset: 0;
+		  stroke: #155dcc;
+		  transform-origin: center;
+		  animation: dash 1.5s ease-in-out infinite, 
+		}
+	}
+
+}
+

@@ -1,0 +1,96 @@
+.pb-iframe-size{
+	@include fixed(left 20px bottom 20px);
+	z-index: 10;
+
+	button{
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.pb-media-container{
+	@include fixed(top 0 left 0);
+	@include size(100%, 100%);
+	z-index: -1;
+	padding: 15px;
+	background: rgba(0,0,0,.5);
+	visibility: hidden;
+	opacity:0;
+	@include transition(all .5s);
+
+	&.active{
+		visibility: visible;
+		opacity: 1;
+		z-index: 110;
+	}
+
+	.pb-media-wrapper{
+		@include relative();
+		@include size(100%, 100%);
+		background: #fff;
+		border: 1px solid #eee;
+		padding: 0 0 80px 0;
+		overflow: auto;
+	}
+
+	.pb-media-grid{
+		padding: 10px;
+		font-size: 0;
+		
+		.pb-media-item{
+			@include size(16.6667%, 0);
+			padding-top: 16.6667%;
+			display: inline-block;
+			vertical-align: top;
+			border: 2px solid transparent;
+			cursor: pointer;
+			@include transition(all .5s $easeInOutMy);
+
+			&.active{
+				border-color: #88b5ec;
+
+				.pb-media-image{
+					@include scale(.95);
+				}
+			}
+		}
+
+		.pb-media-image{
+			@include absolute(top 0 left 0);
+			@include size(100%, 100%);
+			padding: 10px;
+			@include transition(all .5s $easeInOutMy);
+		}
+
+		.pb-background{
+			position: relative;
+			backface-visibility: hidden;
+		}
+	}
+
+	.gs-pb-media-controlls{
+		@include absolute(bottom 15px left 15px);
+		background: #fff;
+		@include size(calc(100% - 30px), auto);
+		z-index: 1;
+		text-align: right;
+		padding: 17px 30px;
+
+		.gs-pb-add-image{
+			display: inline-block;
+			vertical-align: middle;
+			padding: 10px 15px;
+			color: #fff;
+			background: #3982da;
+			border-radius: 5px;
+			pointer-events: none;
+			opacity: .5;
+			@include transition(all .5s $easeInOutMy);
+
+			&.active{
+				pointer-events: inherit;
+				opacity:1;
+			}
+		}
+	}
+}

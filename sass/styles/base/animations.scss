@@ -1,0 +1,154 @@
+/* On Scroll Animations For Desktop*/	
+	.gs-anim-block{
+
+		.gs-elem{
+			@include transition(all 1s);
+			visibility: hidden;
+			opacity: 0;
+
+			&.done{
+				visibility: visible;
+				opacity: 1;
+			}
+
+			&.top{
+				@include transformY(150px);
+
+				&.done{
+					@include transformY(0);
+				}
+			}
+
+			&.left{
+				visibility: visible;
+				opacity: 1;
+				@include transformX(-150px);
+
+				&.done{
+					@include transformY(0);
+				}
+			}
+
+			&.right{
+				@include transformX(150px);
+
+				&.done{
+					@include transformY(0);
+				}
+			}
+
+			&.scale{
+				@include scale(.7);
+
+				&.done{
+					@include scale(1);
+				}
+			}
+
+			&.blink{
+				&.done{
+					animation: blink .5s 1;
+				}
+			}
+
+			&.blink-out{
+				&.done{
+					animation: blink_out .5s 1;
+				}
+			}
+		}
+
+	}
+
+@keyframes loader-one{
+	from {
+		@include rotate(0deg);
+	}
+  	to {
+  		@include rotate(360deg);
+  	}
+
+}
+
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@keyframes scroll_down{
+    0% { @include transformY(0px) }
+    50% { @include transformY(5px) }
+    100% { @include transformY(0px) }
+}
+
+
+@keyframes grain{
+    0% { @include transformXD(0px, 0px, 0px) }
+    20% { @include transformXD(40px, -40px, 0px) }
+    40% { @include transformXD(-40px, 40px, 0px) }
+    60% { @include transformXD(-40px, -40px, 0px) }
+    80% { @include transformXD(40px, 40px, 0px) }
+    100% { @include transformXD(0px, 0px, 0px) }
+}
+
+/* Spinner Animation */
+
+$offset: 187;
+$duration: 1.4s;
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+@keyframes dash {
+
+ 0% { 
+ 	stroke-dashoffset: $offset; 
+ }
+ 50% {
+ 	stroke-dashoffset: $offset/4;transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: $offset;
+   transform:rotate(450deg);
+ }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

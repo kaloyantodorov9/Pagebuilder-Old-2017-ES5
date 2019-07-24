@@ -1,0 +1,50 @@
+/// Regular font family
+/// @type List
+$font-main: 'Montserrat', sans-serif;
+
+body {
+  color: #424242;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: $font-main;
+  line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: normal;
+	color:inherit;
+	padding: 0;
+    margin: 0;
+	font-size: 14px;
+	font-family: $font-main;
+	line-height: 1;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+h3 {
+	font-size: 32px;
+}
+
+h4 {
+	font-size: 28px;
+}
+
+h5 {
+	font-size: 24px;
+}
+
+h6 {
+	font-size: 20px;
+}
+
+

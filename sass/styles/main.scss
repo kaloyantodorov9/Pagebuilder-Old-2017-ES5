@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* 1. Configuration and helpers */
+@import
+  'utils/variables',
+  'utils/mixins';
+
+/* 2. Vendors */
+@import
+  'vendor/normalize.scss';
+
+/* 3. Base stuff */
+@import
+  'base/fonts.scss',
+  'base/typography.scss',
+  'base/helpers.scss',
+  'base/animations.scss',
+  'base/base.scss';
+
+/* 4. Layout-related sections */
+@import
+  'layout/header.scss',
+  'layout/footer.scss';
+
+/* 6. Page-specific styles */
+@import
+  'pages/home.scss',
+  'pages/editor.scss',
+  'pages/pagebuilder.scss';
